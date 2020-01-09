@@ -1,0 +1,105 @@
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { TimelineLite } from 'gsap/all';
+import Button from '../../components/Button'
+
+const ModalDialog = styled.div`
+	opacity: 0;
+	visibility: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 600px;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: .3rem;
+	outline: 0;
+	padding: 20px;
+`;
+const Modal = styled.div`
+	background-color: rgba(30, 30, 30, 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1050;
+	overflow: hidden;
+	outline: 0;
+`;
+
+class ModalComponent extends Component {
+
+	constructor(props){
+		super(props);
+
+		this.modalWrap = null;
+		this.modalDialog = null;
+		this.modalTween = new TimelineLite({ paused: true });
+
+		this.keyDownHandler = this.keyDownHandler.bind(this);
+	}
+
+
+	keyDownHandler = e => {
+		if ( e.keyCode === 27 ) this.props.close();
+	}
+
+	componentDidMount() {
+		this.modalTween
+			.to(this.modalWrap, 0.01, { autoAlpha: 1 })
+			.to(this.modalDialog, 0.25, { y: 50, autoAlpha: 1 }, 0)
+			.reversed(true)
+			.paused(false);
+	}
+
+	componentDidUpdate() {
+		if ( this.props.visible ) {
+			window.addEventListener('keydown', this.keyDownHandler);
+		} else {
+			window.removeEventListener('keydown', this.keyDownHandler);
+		}
+		this.modalTween.reversed(!this.props.visible);
+	}
+
+	render() {
+		return (
+			<Modal
+				ref={div => this.modalWrap = div}
+				onClick={this.props.close}
+			>
+				<ModalDialog
+					ref={div => this.modalDialog = div}
+					onClick={event => event.stopPropagation()}
+				>
+					<div className="modal-content">
+						<div className="modal-header">
+							<h4>A Simple Modal Tween</h4>
+						</div>
+						<div className="modal-body">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam velit provident sunt iusto ratione dolore veritatis deserunt ullam vel doloribus.</p>
+						</div>
+						<div className="modal-footer">
+							<Button
+								className="btn btn-secondary"
+								onClick={this.props.close}
+							>
+								Close
+							</Button>
+						</div>
+					</div>
+				</ModalDialog>
+			</Modal>
+		);
+	}
+
+}
+
+export default ModalComponent;

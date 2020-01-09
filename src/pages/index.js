@@ -1,17 +1,16 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PrismCode from 'react-prism'
-import 'prismjs'
-import 'prism-themes/themes/prism-atom-dark.css'
+import NextButton from '../components/NextButton'
+
 
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1 style={{ marginBottom: "8px" }}>Using GSAP with Gatsby!</h1>
-    <h2>Part one of... many?</h2>
+    <h1 style={{ marginBottom: "8px" }}>Using GSAP with Gatsby and Styled Components!</h1>
+    <h2>Part one of...</h2>
     <p>Today we are looking at what GSAP (Green Sock Animation Plugin) is how to use it with React, specifically Gatsby, and some basic concepts for getting started with your own animations.</p>
     <h3>What is GSAP?</h3>
     <a href="https://greensock.com/gsap/" target="blank">Green Sock Website</a>
@@ -60,7 +59,7 @@ const IndexPage = () => (
         }
       `}
     </PrismCode>
-    <Link to="/first-example/">First Example</Link>
+    <NextButton to="/first-example/" />
   </Layout>
 )
 

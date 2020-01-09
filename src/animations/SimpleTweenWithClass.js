@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import Image from "./image"
+import Image from "../components/image"
+import Button from '../components/Button'
 import { TimelineLite } from "gsap/all"
 
 export default class SimpleTween extends Component {
@@ -16,16 +17,17 @@ export default class SimpleTween extends Component {
     // create logo tween
     this.animation
       .to(this.imgRef, 2, { x: 500 })
-      .to(this.imgRef, 2, { rotation: 360, transformOrigin: "center" }).play()
+      .to(this.imgRef, 2, { rotation: 360, transformOrigin: "center" })
   }
 
   render() {
     return (
       <>
         <div>
-          <button onClick={() => this.animation.pause()}>Pause</button>
-          <button onClick={() => this.animation.reverse()}>Reverse</button>
-          <button onClick={() => this.animation.restart()}>Restart</button>
+          <Button onClick={() => this.animation.play()}>Play</Button>
+          <Button onClick={() => this.animation.pause()}>Pause</Button>
+          <Button onClick={() => this.animation.reverse()}>Reverse</Button>
+          <Button onClick={() => this.animation.restart()}>Restart</Button>
         </div>
 
         <div

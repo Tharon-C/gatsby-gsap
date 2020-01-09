@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `GSAP ♥ Gatsby!`,
+    title: `GSAP ♥ Gatsby ♥ Styled Components!`,
     description: `Exploring how to use GSAP with Gatsby`,
     author: `@gatsbyjs`,
   },

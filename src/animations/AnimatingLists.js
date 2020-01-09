@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styled from 'styled-components'
 import { TimelineLite} from "gsap/all"
 import { dataArray } from "../data"
+import Button from '../components/Button'
 
 const CardList = styled.div`
   padding: 50px 0;
@@ -44,10 +45,10 @@ class MultipleElements extends Component {
 		return (
 			<>
         <div>
-          <button onClick={() =>  this.tl.play()}>Play</button>
-          <button onClick={() => this.tl.pause()}>Pause</button>
-          <button onClick={() => this.tl.reverse()}>Reverse</button>
-          <button onClick={() => this.tl.restart()}>Restart</button>
+          <Button onClick={() =>  this.tl.play()}>Play</Button>
+          <Button onClick={() => this.tl.pause()}>Pause</Button>
+          <Button onClick={() => this.tl.reverse()}>Reverse</Button>
+          <Button onClick={() => this.tl.restart()}>Restart</Button>
         </div>
         <CardList>
         {

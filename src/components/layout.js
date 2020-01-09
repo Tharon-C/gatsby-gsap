@@ -8,6 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import 'prismjs'
+import 'prism-themes/themes/prism-atom-dark.css'
 
 import Header from "./header"
 import "./layout.css"
