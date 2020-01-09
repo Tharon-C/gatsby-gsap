@@ -1,12 +1,29 @@
-import React, { Component } from "react";
-import styled from 'styled-components';
-import { TimelineLite} from "gsap/all";
-import { dataArray } from "../data";
+import React, { Component } from "react"
+import styled from 'styled-components'
+import { TimelineLite} from "gsap/all"
+import { dataArray } from "../data"
 
+const CardList = styled.div`
+  padding: 50px 0;
+`
 const Card = styled.div`
+  transform: matrix(1, 0, 0, 1, 0, 20);
   opacity: 0;
   visibility: hidden;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgrey;
+  margin-bottom: 8px;
+  padding: 8px;
 `
+const Avatar = styled.img`
+  margin: 0 16px 0 0;
+`
+const Title = styled.h2`
+  font-size: 18px;
+  margin: 0;
+`
+
 class MultipleElements extends Component {
 
 	constructor(props){
@@ -19,7 +36,7 @@ class MultipleElements extends Component {
 	}
 
 	componentDidMount(){
-		this.tl.staggerTo( this.cards , 0.5, { autoAlpha: 1, y: -20 }, 0.1);
+		this.tl.staggerTo( this.cards , 0.5, { autoAlpha: 1, y: 0 }, 0.1);
 	}
 
 	render(){
@@ -32,28 +49,21 @@ class MultipleElements extends Component {
           <button onClick={() => this.tl.reverse()}>Reverse</button>
           <button onClick={() => this.tl.restart()}>Restart</button>
         </div>
-				
-        {// map through the elements
+        <CardList>
+        {
         dataArray.map((element, index) => (
           <Card
             key={element.id}
-            innerRef={div => this.cards[index] = div}
+            ref={div => this.cards[index] = div}
           >
-            <div>
-              <div>
-                <div>
-                  <img
-                    src="https://via.placeholder.com/64"
-                    alt="Generic placeholder"
-                  />
-                  <div>
-                    <h5>{element.name}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Avatar
+              src="https://via.placeholder.com/64"
+              alt="Generic placeholder"
+            />
+            <Title>{element.name}</Title>
           </Card>
         ))}
+        </CardList>
       </>
     );
 	}

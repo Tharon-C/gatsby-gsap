@@ -8,7 +8,7 @@ import AnimatingLists from '../components/AnimatingLists'
 const ThirdPage = () => (
   <Layout>
     <SEO title="Page two" />
-    <h1>Basic Example With Hooks</h1>
+    <h1>Mapping Over Elements</h1>
     <AnimatingLists />
     <Link to="/">Next Example</Link>
   </Layout>
