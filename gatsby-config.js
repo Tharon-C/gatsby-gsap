@@ -3,9 +3,10 @@ module.exports = {
     title: `GSAP ♥ Gatsby ♥ Styled Components!`,
     description: `Exploring how to use GSAP with Gatsby`,
     author: `@gatsbyjs`,
-  },
+  },  
+  pathPrefix: `/gatsby-gsap`,
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-filesystem`,

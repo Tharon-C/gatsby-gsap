@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import styled from 'styled-components'
-import { TimelineLite} from "gsap/all"
+import { TimelineLite} from "gsap"
 import { dataArray } from "../data"
 import Button from '../components/Button'
 
@@ -8,7 +8,7 @@ const CardList = styled.div`
   padding: 50px 0;
 `
 const Card = styled.div`
-  transform: matrix(1, 0, 0, 1, 0, 20);
+  transform: translatey(20px);
   opacity: 0;
   visibility: hidden;
   display: flex;
@@ -41,7 +41,6 @@ class MultipleElements extends Component {
 	}
 
 	render(){
-		this.tl.kill().clear().pause(0);
 		return (
 			<>
         <div>

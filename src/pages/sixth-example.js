@@ -3,16 +3,16 @@ import React from 'react'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NextButton from '../components/NextButton'
-import ComplexAnimation from '../animations/complexAnimation'
+import NestedTimelines from '../animations/nestedTimelines'
 
 const ThirdPage = () => (
   <Layout >
     <SEO title="Page two" />
-    <h1>Many Timelines, Many Components</h1>
+    <h1>Nested Timelines</h1>
     <div style={{ marginBottom: "16px"}}>
-      <ComplexAnimation />
+      <NestedTimelines />
     </div>
-    <NextButton to="/sixth-example" />
+    <NextButton to="/wrapping-up" />
   </Layout>
 )
 

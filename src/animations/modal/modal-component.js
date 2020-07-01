@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { TimelineLite } from 'gsap/all';
+import { TimelineLite } from 'gsap';
 import Button from '../../components/Button'
 
 const ModalDialog = styled.div`
@@ -12,8 +12,7 @@ const ModalDialog = styled.div`
 	width: 100%;
 	max-width: 600px;
 	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid rgba(0,0,0,.2);
+	box-shadow: 1px 1px 10px 1px black;
 	border-radius: .3rem;
 	outline: 0;
 	padding: 20px;

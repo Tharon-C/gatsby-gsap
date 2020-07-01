@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Image from "../components/image"
 import Button from '../components/Button'
-import { TimelineLite } from "gsap/all"
+import { TimelineMax } from "gsap"
 
 export default class SimpleTween extends Component {
 
@@ -10,14 +10,14 @@ export default class SimpleTween extends Component {
     // logo container
     this.imgRef = null
     // logo tween
-    this.animation = new TimelineLite({ paused: true })
+    this.animation = new TimelineMax({ paused: true })
   }
 
   componentDidMount() {
     // create logo tween
     this.animation
       .to(this.imgRef, 2, { x: 500 })
-      .to(this.imgRef, 2, { rotation: 360, transformOrigin: "center" })
+      .to(this.imgRef, 2, { rotation: 360, transformOrigin: "center" });
   }
 
   render() {

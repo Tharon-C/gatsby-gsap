@@ -49,14 +49,21 @@ const IndexPage = () => (
           componentDidMount(){
             this.myTween
               .to(this.myElement, 0.5, {x: 100})
-              .to(this.myElement, 0.5, {y: 100, rotation: 180})
-              .play();
+              .to(this.myElement, 0.5, {y: 100, rotation: 180});
           }
 
           render(){
             return <div ref={div => this.myElement = div} />;
           }
         }
+      `}
+    </PrismCode>
+    <h3 style={{ marginTop: '50px' }}>Gatsby Gotcha</h3>
+    <p>Contrary to many examples online, make sure to import from gasp module root directory</p>
+    <PrismCode component="pre" className="language-js">
+      {`
+        import { TimelineLite} from "gsap" // Good!
+        import { TimelineLite} from "gsap/all" // Bad! Will work fine on local dev server but will break when compiled to static site.
       `}
     </PrismCode>
     <NextButton to="/first-example/" />

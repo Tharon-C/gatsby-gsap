@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TimelineMax } from 'gsap/all';
+import { TimelineMax } from 'gsap';
 
 export default class Trees extends Component{
   constructor(props) {
@@ -13,10 +13,10 @@ export default class Trees extends Component{
     this.BendingTL = new TimelineMax({repeat: -1})
     .set(this.line, { transformOrigin: "bottom"})
     .set(this.leaves, { transformOrigin: "bottom"})
-    .to(this.line, 3, { rotation: 4 }, "wind1")
-    .to(this.leaves, 3, { rotation: 3, x: 2 }, "wind1")
+    .to(this.line, 3, { rotation: 3 }, "wind1")
+    .to(this.leaves, 3, { rotation: 4, x: 2 }, "wind1")
     .to(this.line, 4, { rotation: 2 }, "wind2")
-    .to(this.leaves, 4, { rotation: 1, x: 2 }, "wind2")
+    .to(this.leaves, 4, { rotation: 4, x: 2 }, "wind2")
     .yoyo(true);
   }
 

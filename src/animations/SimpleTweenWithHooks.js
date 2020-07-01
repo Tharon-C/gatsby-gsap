@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import Image from "../components/image"
 import Button from '../components/Button'
-import { TimelineLite } from "gsap/all"
+import { TimelineLite } from "gsap"
 
 export default () => {
 	let imgRef = useRef(null);
